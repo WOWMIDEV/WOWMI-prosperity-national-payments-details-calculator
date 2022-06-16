@@ -1,217 +1,285 @@
 <div class="calc-wrp">
     <section class="section section--no-border-bottom wf-section">
         <div class="container container--min">
-            <h2 class="heading-lg">Know Your Monthly <span class="color-turquoise">Mortgage Payment</span></h2>
+            <h2 class="heading-lg">How much<span class="color-turquoise"> will my payments be?</span></h2>
 
             <div class="calc-wrp">
-                <div class="calculator">
-                    <div class="calculator__fields">
-                        <div class="form">
-                            <form id="calculator" name="calc" class="form__wrapper" aria-label="Calculator">
 
-                                <div class="form__layout">
-        <!--                            Home price, $-->
-                                    <div class="form__item">
-                                        <label for="home-price" class="label">Home price, $</label>
+
+                <div class="calc-wrp__form-block-wrapper">
+                    <div>
+                        <form id="calculatorHowMuch" name="calcHowMuch" method="get" class="calc-wrp__form">
+
+                            <div class="calc-wrp__line">
+                                <div class="calc-wrp__inner-line">
+                                    <div class="calc-wrp__item">
+                                        <h3 class="calculator-from__header">Loan information</h3>
+                                        <label for="Amount" class="calculator-form__label">
+                                            Amount, $
+                                        </label>
                                         <input type="number"
-                                               class="input w-input"
-                                               maxlength="256"
-                                               name="home-price"
-                                               placeholder="250000"
-                                               value="500000"
-                                               id="home-price">
+                                               class="calculator-form__input w-input"
+                                               min="1"
+                                               step="1"
+                                               name=""
+                                               placeholder="250000.00"
+                                               value="250000.00"
+                                               id="Amount">
                                     </div>
-        <!--                            Loan term, year-->
-                                    <div class="form__item">
-                                        <label class="label">Loan term, year</label>
-                                        <div class="form__radiobuttons">
-                                            <label class="radio" for="10">
-                                                <input type="radio"
-                                                       name="term"
-                                                       id="10"
-                                                       value="10">
-                                                <div class="radio__icon"></div>
-                                                <span class="radio__label w-form-label">10</span>
-                                            </label>
 
-                                            <label class="radio" for="15">
-                                                <input type="radio"
-                                                       name="term"
-                                                       id="15"
-                                                       value="15">
-                                                <div class="radio__icon"></div>
-                                                <span class="radio__label w-form-label">15</span>
-                                            </label>
+                                    <div class="calc-wrp__item">
+                                        <label for="interest-rate" class="calculator-form__label">
+                                            Interest Rate, %
+                                        </label>
+                                        <input type="number"
+                                               class="calculator-form__input w-input"
+                                               min="0.5"
+                                               step="0.1"
+                                               value="3.50"
+                                               name="interest-rate"
+                                               placeholder="3.50"
+                                               id="interest-rate">
+                                    </div>
 
-                                            <label class="radio" for="20">
-                                                <input type="radio"
-                                                       name="term"
-                                                       id="20"
-                                                       value="20">
-                                                <div class="radio__icon"></div>
-                                                <span class="radio__label w-form-label">20</span>
-                                            </label>
+                                    <div class="calc-wrp__item">
+                                        <label for="term" class="calculator-form__label">
+                                            Length, yrs
+                                        </label>
+                                        <input type="number"
+                                               class="calculator-form__input w-input"
+                                               min="1"
+                                               step="1"
+                                               name="term"
+                                               value="30"
+                                               placeholder="30"
+                                               id="term">
+                                    </div>
 
-                                            <label class="radio" for="30">
+                                    <div class="calc-wrp__item full-item">
+                                        <h3 class="calculator-from__header">Property information</h3>
+                                        <label for="home-value" class="calculator-form__label">
+                                            Home Value, $
+                                        </label>
+                                        <input type="number"
+                                               class="calculator-form__input"
+                                               name="home-value"
+                                               value="300000.00"
+                                               placeholder="300000.00"
+                                               id="home-value">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-wrp__line">
+                                <h3 class="calculator-from__header">Taxes and insurance information</h3>
+                                <div class="calc-wrp__inner-line">
+
+                                    <div class="calc-wrp__item">
+                                        <div class="switcher-parent">
+                                            <label class="switcher-label" for="switch-taxes-currency">
                                                 <input type="radio"
-                                                       name="term"
-                                                       id="30"
-                                                       value="30"
-                                                       checked>
-                                                <div class="radio__icon"></div>
-                                                <span class="radio__label w-form-label">30</span>
+                                                       name="switch-taxes"
+                                                       class="swticher"
+                                                       id="switch-taxes-currency"
+                                                       checked="checked">
+                                                <div class="radio-icon">$</div>
+                                            </label>
+                                            <label class="switcher-label" for="switch-taxes-percent">
+                                                <input type="radio"
+                                                       name="switch-taxes"
+                                                       class="swticher"
+                                                       id="switch-taxes-percent">
+                                                <div class="radio-icon">%</div>
                                             </label>
                                         </div>
-                                    </div>
-        <!--                            Down payment, $-->
-                                    <div class="form__item condition-item">
-                                        <label for="down-payment" class="label">Down payment, $</label>
-                                        <input type="number"
-                                               class="input w-input"
-                                               maxlength="256"
-                                               name="down-payment"
-                                               placeholder="100000"
-                                               value="100000"
-                                               id="down-payment">
-                                    </div>
-        <!--                            Interest Rate, %-->
-                                    <div class="form__item condition-item">
-                                        <label for="interest-rate" class="label">Interest Rate, %</label>
-                                        <input type="number"
-                                               class="input w-input"
-                                               name="interest-rate"
-                                               id="interest-rate"
-                                               step="0.1"
-                                               min="0.5"
-                                               value="3.50">
-                                    </div>
-        <!--                        Checkbox Include -->
-                                    <div class="form__item">
-                                        <label class="w-checkbox checkbox checkbox-inline" for="tax-switch">
-                                            <input type="checkbox"
-                                                   name="tax-switch"
-                                                   id="tax-switch"
-                                                   data-name="tax-switch"
-                                                   data-calc-exclude="property-tax"
-                                                   checked="checked">
-                                            <div class="checkbox__icon"></div>
-                                            <span class="checkbox__label">Include Taxes/Insurance</span>
+                                        <label for="annual-tax" class="calculator-form__label">
+                                            Annual Taxes
                                         </label>
-                                    </div>
-        <!--                        Checkbox empty-->
-                                    <div class="form__item"></div>
-        <!--                        Home insurance (yearly), $-->
-                                    <div class="form__item condition-item" data-property-tax>
-                                        <label for="home-insurance" class="label">Home insurance (yearly), $</label>
                                         <input type="number"
-                                               class="input w-input"
-                                               name="home-insurance"
-                                               id="home-insurance"
-                                               value="1200">
-                                    </div>
-        <!--                        Property tax (yearly), $-->
-                                    <div class="form__item condition-item" data-property-tax>
-                                        <label for="property-tax" class="label">Property tax (yearly), $</label>
-                                        <input type="number"
-                                               class="input w-input"
-                                               name="property-tax"
+                                               class="calculator-form__input w-input"
+                                               name="annual-tax"
                                                placeholder="0"
                                                value="0"
-                                               id="property-tax">
+                                               id="annual-tax">
                                     </div>
-        <!--                        Checkbox Include -->
-                                    <div class="form__item">
-                                        <label class="w-checkbox checkbox checkbox-inline" for="pmi-switch">
-                                            <input type="checkbox"
-                                                   name="pmi-switch"
-                                                   class="swticher"
-                                                   id="pmi-switch"
-                                                   checked="checked"
-                                                   data-calc-exclude="pmi-rate">
-                                            <div class="checkbox__icon"></div>
-                                            <span class="checkbox__label">Include PMI</span>
+
+                                    <div class="calc-wrp__item">
+                                        <div class="switcher-parent">
+                                            <label class="switcher-label" for="switch-insurance-currency">
+                                                <input type="radio"
+                                                       name="switch-insurance"
+                                                       class="swticher"
+                                                       id="switch-insurance-currency"
+                                                       checked="checked">
+                                                <div class="radio-icon">$</div>
+                                            </label>
+                                            <label class="switcher-label" for="switch-insurance-percent">
+                                                <input type="radio"
+                                                       name="switch-insurance"
+                                                       class="swticher"
+                                                       id="switch-insurance-percent">
+                                                <div class="radio-icon">%</div>
+                                            </label>
+                                        </div>
+                                        <label for="annual-insurance" class="calculator-form__label">
+                                            Annual insurance
                                         </label>
+                                        <div>
+                                            <input type="number"
+                                                   class="calculator-form__input w-input"
+                                                   value="1200.00"
+                                                   placeholder="1200.00"
+                                                   name="annual-insurance"
+                                                   id="annual-insurance">
+                                        </div>
                                     </div>
-<!--                        Checkbox empty-->
-                                    <div class="form__item"></div>
-<!--                        PMI rate-->
-                                    <div class="form__item" data-pmi-rate>
-                                        <label for="pmi-rate" class="label">PMI rate</label>
+
+                                    <div class="calc-wrp__item">
+                                        <div class="switcher-parent">
+                                            <label class="switcher-label" for="switch-pmi-currency">
+                                                <input type="radio"
+                                                       name="switch-pmi"
+                                                       class="swticher"
+                                                       id="switch-pmi-currency">
+                                                <div class="radio-icon">$</div>
+                                            </label>
+                                            <label class="switcher-label" for="switch-pmi-percent">
+                                                <input type="radio"
+                                                       name="switch-pmi"
+                                                       class="swticher"
+                                                       id="switch-pmi-percent"
+                                                       checked="checked">
+                                                <div class="radio-icon">%</div>
+                                            </label>
+                                        </div>
+                                        <label for="annual-pmi" class="calculator-form__label">
+                                            Annual PMI
+                                        </label>
                                         <input type="number"
-                                               class="input w-input"
-                                               name="pmi-rate"
+                                               class="calculator-form__input w-input"
+                                               name="annual-pmi"
                                                placeholder="0.001"
                                                step="0.001"
                                                value="0.005"
-                                               id="pmi-rate">
+                                               id="annual-pmi">
                                     </div>
-<!--                        HOA dues, $-->
-                                    <div class="form__item">
-                                        <label for="hoa-dues" class="label">HOA dues, $</label>
-                                        <input type="number"
-                                               class="input w-input"
-                                               name="hoa-dues"
-                                               placeholder="0"
-                                               value="0"
-                                               id="hoa-dues">
+
+                                    <div class="calc-wrp__item">
+                                        <div class="btn btn--huge btn--full-width">
+                                            <div>Calculate now</div>
+                                            <div class="btn-arrow svg-button-arrow">
+                                                <div class="svg w-embed">
+                                                    <svg width="100%" viewBox="0 0 7 11" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.00749 1.10278L5.52171 5.60353L1 10.1028"
+                                                              stroke="currentColor" stroke-width="1.49726"
+                                                              stroke-linecap="round" stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="Submit" data-wait="Please wait..."
+                                                   class="hero-form__submit w-button">
+                                        </div>
                                     </div>
                                 </div>
-
-                                <input type="submit" value="Calculate now" data-wait="Please wait..." class="btn form__btn w-button">
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="calculator__graphics">
-                        <div class="calculator__prices">
-                            <div class="calculator__price">
-                                <div class="calculator__price-label">Mortgage Amount, $</div>
-                                <div class="calculator__price-number" data-calc-result="amount"> </div>
-                            </div>
-                            <div class="calculator__price">
-                                <div class="calculator__price-label">Total Cost Of Mortgage, $</div>
-                                <div class="calculator__price-number" data-calc-result="total"> </div>
-                            </div>
-                        </div>
-                        <div class="chart__donut">
-
-                            <div class="chart__text">
-                                <div class="chart__description">Monthly payment:</div>
-                                <div class="chart__price">
-                                    <span data-calc-result="monthly"></span>
-                                </div>
                             </div>
 
-                            <div class="chart__donut-wrp">
-                                <canvas id="donutBox" data-calc="donut" width="400" height="400"></canvas>
+                            <div data-current="Tab 1" data-easing="ease"
+                                 data-duration-in="300" data-duration-out="100"
+                                 class="calculator-form__tabs w-tabs">
+                                <div class="calculator-form__tab-menu w-tab-menu" role="tablist">
+                                    <a data-w-tab="Tab 1"
+                                       class="calculator-form__tab-link w-inline-block w-tab-link w--current"
+                                       id="w-tabs-0-data-w-tab-0"
+                                       href="#w-tabs-0-data-w-pane-0"
+                                       role="tab"
+                                       aria-controls="w-tabs-0-data-w-pane-0"
+                                       aria-selected="true">
+                                        <div>Financial analysis</div>
+                                    </a>
+                                    <a data-w-tab="Tab 2"
+                                       class="calculator-form__tab-link w-inline-block w-tab-link"
+                                       tabindex="-1"
+                                       id="w-tabs-0-data-w-tab-1"
+                                       href="#w-tabs-0-data-w-pane-1"
+                                       role="tab"
+                                       aria-controls="w-tabs-0-data-w-pane-1" aria-selected="false">
+                                        <div>Plain english help</div>
+                                    </a>
+                                </div>
+                                <div class="w-tab-content">
+                                    <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active" id="w-tabs-0-data-w-pane-0"
+                                         role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-0">
+                                        <div class="calculator-form__content-wrapper">
+                                            <div class="calculator-form__content-top">
+                                                <div class="calculator-form__list w-list-unstyled">
+                                                    <div class="calculator-form__list-item">
+                                                        <div class="name-result">Monthly principal &amp; interest, $
+                                                        </div>
+                                                        <div class="result">0</div>
+                                                    </div>
+                                                    <div class="calculator-form__list-item">
+                                                        <div class="name-result">Monthly real estate taxes, $</div>
+                                                        <div class="result">0</div>
+                                                    </div>
+                                                    <div class="calculator-form__list-item">
+                                                        <div class="name-result">Monthly insurance, $</div>
+                                                        <div class="result">0</div>
+                                                    </div>
+                                                    <div class="calculator-form__list-item">
+                                                        <div class="name-result">Loan to value ratio</div>
+                                                        <div class="result">0</div>
+                                                    </div>
+                                                    <div class="calculator-form__list-item">
+                                                        <div class="name-result">Monthly PMI, $</div>
+                                                        <div class="result">0</div>
+                                                    </div>
+                                                    <div class="calculator-form__list-item">
+                                                        <div class="name-result">Months with PMI</div>
+                                                        <div class="result">0</div>
+                                                    </div>
+                                                    <div class="calculator-form__list-item result-item">
+                                                        <div class="name-result total">Total monthly payments</div>
+                                                        <div class="result total">0</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-w-tab="Tab 2" class="w-tab-pane" id="w-tabs-0-data-w-pane-1"
+                                         role="tabpanel" aria-labelledby="w-tabs-0-data-w-tab-1">
+                                        <div class="calculator-form__content-wrapper">
+                                            <div class="calculator-form__text-result-wrapper">
+                                                <div class="text">
+                                                    <p>Your payment will vary depending on how much you will be
+                                                        borrowing, the interest rate, and the length of your loan. Other
+                                                        factors also need to be taken into consideration, such as your
+                                                        taxes, your insurance, and your PMI, all of which are included
+                                                        in your monthly house payment. Even the value of your home will
+                                                        affect your payment.</p>
+                                                    <p>Just as an example, let's say you are borrowing <span class="marker currency">250,000.00</span> for
+                                                        <span class="marker">30</span> years with an interest rate of <span class="marker percent">4.000</span>. If the value of your
+                                                        home is <span class="marker currency">300,000.00</span>, your property taxes <span class="marker currency">3,000.00</span> per year and
+                                                        your insurance is <span class="marker currency">1,500.00</span> per year, you can expect to be
+                                                        making a total payment of <span class="marker currency">1,672.70</span>. This is because you need to
+                                                        pay <span class="marker currency">1,193.54</span> toward the actual loan, plus <span class="marker currency">250.00</span> for real
+                                                        estate taxes and <span class="marker currency">125.00</span> toward insurance.</p>
+                                                    <p>Since your loan to value ratio is <span class="marker percent">83.33</span>, you will also have to
+                                                        pay PMI for <span class="marker">26</span> months which will add an extra <span class="marker">104.17</span> a month.
+                                                        Don't forget to drop the PMI when the <span class="marker">26</span> months is complete and
+                                                        you might save yourself some money each month. Canceling your
+                                                        PMI will require a reappraisal of your home in most cases.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div class="legend">
-                                <div class="legend__item">
-                                    <div class="legend__color" data-calc-legend-name="P&amp;I"></div>
-                                    <div class="legend__text">P&amp;I</div>
-                                </div>
-                                <div class="legend__item">
-                                    <div class="legend__color" data-calc-legend-name="Insurance"></div>
-                                    <div class="legend__text">Insurance</div>
-                                </div>
-                                <div class="legend__item">
-                                    <div class="legend__color" data-calc-legend-name="Taxes"></div>
-                                    <div class="legend__text">Taxes</div>
-                                </div>
-                                <div class="legend__item">
-                                    <div class="legend__color" data-calc-legend-name="PMI"></div>
-                                    <div class="legend__text">PMI</div>
-                                </div>
-                                <div class="legend__item">
-                                    <div class="legend__color" data-calc-legend-name="HOA"></div>
-                                    <div class="legend__text">HOA</div>
-                                </div>
-                            </div>
-
-                        </div>
+                        </form>
                     </div>
                 </div>
+
+
             </div>
 
         </div>
