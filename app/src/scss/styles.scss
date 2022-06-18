@@ -1,11 +1,10 @@
 .header {
-  padding: 32px;
+  padding: 2rem;
   width: 100%;
   text-align: center;
-  font-size: 14px;
-  background-color: #94e3ce
+  font-size: 0.875rem;
+  background-color: #94e3ce;
 }
-
 // form how-much calculator
 .calc-wrp{
   font-family: "Poppins", sans-serif;
@@ -13,7 +12,7 @@
     outline: none;
   }
   .calc-wrp__form-block-wrapper {
-    margin-bottom: 100px;
+    margin-bottom: 6.25rem;
     border-radius: 5px;
     box-shadow: 0 4px 80px 0 rgb(0 0 0 / 10%);
   }
@@ -22,21 +21,40 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 60px
+    padding: 3.75rem;
+    @media (max-width: 48rem) {
+      padding: 2.5rem 0 0;
+    }
   }
   &__line{
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    @media (max-width: 48rem) {
+      padding: 0 1.25rem;
+    }
   }
   &__item{
     width: 23.8%;
     position: relative;
+    @media (max-width: 61.9375rem) {
+      width: 100%;
+      position: relative;
+      &.full-item{
+        width: 100%;
+      }
+    }
+    @media (max-width: 36rem) {
+
+      &.full-item{
+        margin-top: 1.25rem;
+      }
+    }
     .calculator-from__header{
-      margin-bottom: 30px;
+      margin-bottom: 1.875rem;
     }
     .btn.btn--huge.btn--full-width {
       width: 100%;
@@ -50,10 +68,10 @@
       align-items: center;
       background: #EEF2F4;
       border-radius: 2px;
-      padding: 2px;
+      padding: 0.125rem;
       position: absolute;
       right: 0;
-      top: -5px;
+      top: -0.3125rem;
       .switcher-label{
         display: block;
         margin-bottom: 0;
@@ -65,13 +83,13 @@
         color: #232323;
         font-style: normal;
         font-weight: 600;
-        font-size: 12px;
+        font-size: 0.75rem;
         line-height: 100%;
         background: transparent;
         transition: all .3s;
         border-radius: 2px;
-        width: 24px;
-        height: 20px;
+        width: 1.5rem;
+        height: 1.25rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -84,12 +102,11 @@
         z-index: -1;
         &:checked ~ .radio-icon{
           color: #FFFFFF;
-          font-size: 12px;
+          font-size: 0.75rem;
           line-height: 100%;
           background-color: #07BECB;
           transition: all .3s;
         }
-
       }
 
       .radio-label {
@@ -98,37 +115,71 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-
-
     }
   }
   .calculator-from__header{
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
   &__inner-line{
     display: flex;
     align-items: self-end;
-    gap: 20px;
+    gap: 1.25rem;
   }
-
+  @media (max-width: 61.9375rem){
+    &__inner-line {
+      flex-wrap: wrap;
+    }
+    input{
+      width: 100%;
+    }
+  }
 }
 // form how-much calculator + webflow styles
 .calculator-form{
   &__content-wrapper{
-    padding: 20px;
+    padding: 1.25rem;
   }
   &__tab-link:hover {
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     background-color: #07becb;
     color: #fff;
   }
 
   &__content-top{
-    padding: 20px 40px;
+    padding: 1.25rem 2.5rem;
+    @media(max-width: 36rem){
+      padding: 1.25rem 0.9375rem;
+      margin-bottom: 0;
+    }
   }
   &__tabs{
     background-color: #EEF2F4;
+    @media(max-width: 36rem){
+      overflow: hidden;
+      width: 100%;
+      margin-top: 0;
+      border-radius: 0;
+    }
+  }
+  &__tab-menu{
+    @media(max-width: 36rem){
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 1.25rem 1.25rem 0;
+      border-bottom: none;
+    }
+  }
+  &__tab-link{
+    @media(max-width: 36rem){
+      width: 100%;
+      height: auto;
+      background-color: #fff;
+      border-radius: 5px !important;
+      padding: 1.125rem !important;
+    }
   }
   &__list {
     width: 100%;
@@ -138,160 +189,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     height: auto;
     border-bottom: 1px solid #EEF2F4;
     margin: 0;
-    &:last-child{
-      border: none;
-    }
-    .name-result{
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 100%;
-      letter-spacing: -0.5px;
-      color: rgba(92, 92, 92, 0.6);
-      &.total{
-        font-weight: 600;
-        color: #232323;
-      }
-    }
-    .result{
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 100%;
-      letter-spacing: -0.5px;
-      color: #232323;
-      &.total{
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 100%;
-        letter-spacing: -0.5px;
-        color: #07BECB;
-        position: relative;
-        &::before {
-          content: "$";
-          margin-right: 5px;
-          left: 0;
-        }
-      }
-    }
-  }
-  &__text-result-wrapper{
-    background: #FFFFFF;
-    border-radius: 5px;
-    padding: 40px;
-    .text{
-      font-family: 'Poppins', sans-serif;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 200%;
-      letter-spacing: -0.5px;
-      color: #232323;
-      p{
-        margin-bottom: 20px;
-        &:last-child{
-          margin-bottom: 0;
-        }
-        .marker{
-          display: inline;
-          font-weight: 600;
-          position: relative;
-          &.percent{
-            &::after {
-              content: "%";
-              margin-left: 2px;
-              right: 0;
-            }
-          }
-          &.currency{
-            &::before {
-              content: "$";
-              margin-right: 2px;
-              left: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-// form how-much calculator end
-
-@media(max-width: 991px){
-  .calc-wrp{
-    &__item {
-      width: 47.8%;
-      position: relative;
-      &.full-item{
-        width: 100%;
-      }
-    }
-  }
-  .calc-wrp{
-    &__inner-line {
-      flex-wrap: wrap;
-    }
-    input{
-      width: 100%;
-    }
-  }
-}
-@media (max-width: 768px) {
-  .calc-wrp{
-    &__form {
-      padding: 40px 0 0;
-    }
-    &__line{
-      padding: 0 20px;
-    }
-  }
-}
-@media (max-width: 576px) {
-
-  .calc-wrp{
-    &__item {
-      width: 100%;
-      position: relative;
-      &.full-item{
-        margin-top: 20px;
-      }
-    }
-    &__inner-line {
-      flex-wrap: wrap;
-    }
-    input{
-      width: 100%;
-    }
-  }
-  .calculator-form{
-    &__tabs {
-      overflow: hidden;
-      width: 100%;
-      margin-top: 0;
-      border-radius: 0;
-    }
-    &__tab-menu {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 20px 20px 0;
-      border-bottom: none;
-    }
-    &__tab-link {
-      width: 100%;
-      height: auto;
-      background-color: #fff;
-      border-radius: 5px !important;
-      padding: 18px !important;
-    }
-    .w-tab-link{
-      padding: 18px 30px;
-    }
-    &__list-item{
+    @media(max-width: 36rem) {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -302,18 +204,92 @@
         justify-content: space-between;
         .name-result{
           margin-bottom: 0;
-          margin-right: 15px;
+          margin-right: 0.9375rem;
         }
       }
       .name-result{
-        margin-bottom: 15px
+        margin-bottom: 0.9375rem
       }
     }
-    &__content-top {
-      padding: 20px 15px;
-      margin-bottom: 0;
+    &:last-child{
+      border: none;
+    }
+    .name-result{
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 100%;
+      letter-spacing: -0.03125em;
+      color: rgba(92, 92, 92, 0.6);
+      &.total{
+        font-weight: 600;
+        color: #232323;
+      }
+    }
+    .result{
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 100%;
+      letter-spacing: -0.03125em;
+      color: #232323;
+      &.total{
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.03125em;
+        color: #07BECB;
+        position: relative;
+        &::before {
+          content: "$";
+          margin-right: 0.3125em;
+          left: 0;
+        }
+      }
+    }
+  }
+  &__text-result-wrapper{
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 2.5rem;
+    .text{
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 200%;
+      letter-spacing: -0.03125em;
+      color: #232323;
+      p{
+        margin-bottom: 20px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+        .marker{
+          font-weight: 600;
+          position: relative;
+          &.percent{
+            &::after {
+              content: "%";
+              margin-left: 0.125rem;
+              right: 0;
+            }
+          }
+          &.currency{
+            &::before {
+              content: "$";
+              margin-right: 0.125rem;
+              left: 0;
+            }
+          }
+        }
+      }
     }
   }
 
-
+  @media(max-width: 36rem) {
+    .w-tab-link {
+      padding: 1.125rem 1.875rem;
+    }
+  }
 }
+// form how-much calculator end
