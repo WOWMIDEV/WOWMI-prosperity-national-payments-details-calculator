@@ -5,6 +5,7 @@
   font-size: 14px;
   background-color: #94e3ce
 }
+
 // form how-much calculator
 .calc-wrp{
   font-family: "Poppins", sans-serif;
@@ -195,6 +196,7 @@
           margin-bottom: 0;
         }
         .marker{
+          display: inline;
           font-weight: 600;
           position: relative;
           &.percent{

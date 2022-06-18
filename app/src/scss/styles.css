@@ -189,6 +189,7 @@
   margin-bottom: 0;
 }
 .calculator-form__text-result-wrapper .text p .marker {
+  display: inline;
   font-weight: 600;
   position: relative;
 }
