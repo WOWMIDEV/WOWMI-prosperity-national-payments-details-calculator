@@ -1,8 +1,7 @@
 import onChange from 'on-change';
 
 import calc from './calc';
-import {render, renderSwitchValueTarget} from './render';
-
+import { render } from './render';
 
 // controller
 
@@ -13,12 +12,13 @@ const updateExclude = (form, watchedState) => {
 
   [...excludesElements].forEach((excludeItem) => {
     switch (excludeItem.checked) {
-      case true :
+      case true:
+        // console.log(exclude[excludeItem.name])
         exclude[excludeItem.name] = excludeItem.value;
         break;
-      case false :
+      case false:
         break;
-      default :
+      default:
         break;
     }
   });
@@ -66,30 +66,29 @@ const init = () => {
     // switchers
     switchTaxes: document.querySelectorAll('[data-switch="switch-taxes"]'),
     switchInsurance: document.querySelectorAll('[data-switch="switch-insurance"]'),
-    switchPmi: document.querySelectorAll('[data-switch="switch-pmi"]')
+    switchPmi: document.querySelectorAll('[data-switch="switch-pmi"]'),
 
+    // pmi show if result
+    showPmi: document.querySelectorAll('[data-exclude="no-pmi"]'),
   };
   // MODEL
   const state = {
     form: {
-      values:{
+      values: {
         // input values
-        'amount': null,
-        'interest-rate': null,
-        'length-years': null,
-        'home-value': null,
-        'annual-tax': null,
-        'annual-insurance': null,
-        'annual-pmi': null,
-        "switch-taxes" : null,
-        "switch-insurance" : null,
-        "switch-pmi" : null
+        amount: 250000.00,
+        'interest-rate': 4,
+        'length-years': 30,
+        'home-value': "300000.00",
+        'annual-tax': "3000.00",
+        'annual-insurance': "1500.00",
+        'annual-pmi': "0.5",
       },
-      exclude:{
-        "switch-taxes" : null,
-        "switch-insurance" : null,
-        "switch-pmi" : null
-      }
+      exclude: {
+        'switch-taxes': '$',
+        'switch-insurance': '$',
+        'switch-pmi': '%',
+      },
     },
     result: {
       // results
@@ -100,7 +99,7 @@ const init = () => {
       'month-with-pmi': null,
       'monthly-pmi': null,
       // res details
-      'amount': null,
+      amount: null,
       'interest-rate': null,
       'length-years': null,
       'home-value': null,
@@ -108,12 +107,12 @@ const init = () => {
       'annual-insurance': null,
       'annual-pmi': null,
       // total
-      'monthly-payment': null
-    }
+      'monthly-payment': null,
+    },
   };
 
   // MODEL
-  const watchedState = onChange(state, (path, value, prevValue) => {
+  const watchedState = onChange(state, () => {
     // const excludesElements = form.querySelectorAll('.switcher');
     // console.log("STATE", state) ;
     // console.log("PATH, VALUE", path, value);
@@ -139,7 +138,6 @@ const init = () => {
   // FIRST START
   updateValues(elements, watchedState);
   render(elements, watchedState);
-
 };
 
 init();

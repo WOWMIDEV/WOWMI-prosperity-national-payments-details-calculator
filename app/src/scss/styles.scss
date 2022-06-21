@@ -6,9 +6,9 @@
   background-color: #94e3ce;
 }
 // form how-much calculator
-.calc-wrp{
-  font-family: "Poppins", sans-serif;
-  input{
+.calc-wrp {
+  font-family: 'Poppins', sans-serif;
+  input {
     outline: none;
   }
   .calc-wrp__form-block-wrapper {
@@ -16,7 +16,7 @@
     border-radius: 5px;
     box-shadow: 0 4px 80px 0 rgb(0 0 0 / 10%);
   }
-  &__form{
+  &__form {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -26,7 +26,7 @@
       padding: 2.5rem 0 0;
     }
   }
-  &__line{
+  &__line {
     width: 100%;
     margin-bottom: 2.5rem;
     display: flex;
@@ -37,23 +37,22 @@
       padding: 0 1.25rem;
     }
   }
-  &__item{
+  &__item {
     width: 23.8%;
     position: relative;
     @media (max-width: 61.9375rem) {
       width: 100%;
       position: relative;
-      &.full-item{
+      &.full-item {
         width: 100%;
       }
     }
     @media (max-width: 36rem) {
-
-      &.full-item{
+      &.full-item {
         margin-top: 1.25rem;
       }
     }
-    .calculator-from__header{
+    .calculator-from__header {
       margin-bottom: 1.875rem;
     }
     .btn.btn--huge.btn--full-width {
@@ -63,22 +62,22 @@
       color: #333333;
     }
     // switchers
-    .switcher-parent{
+    .switcher-parent {
       display: flex;
       align-items: center;
-      background: #EEF2F4;
+      background: #eef2f4;
       border-radius: 2px;
       padding: 0.125rem;
       position: absolute;
       right: 0;
       top: -0.3125rem;
-      .switcher-label{
+      .switcher-label {
         display: block;
         margin-bottom: 0;
         position: relative;
       }
-      .radio-icon{
-        font-family: "Poppins", sans-serif;
+      .radio-icon {
+        font-family: 'Poppins', sans-serif;
         margin-bottom: 0;
         color: #232323;
         font-style: normal;
@@ -86,7 +85,7 @@
         font-size: 0.75rem;
         line-height: 100%;
         background: transparent;
-        transition: all .3s;
+        transition: all 0.3s;
         border-radius: 2px;
         width: 1.5rem;
         height: 1.25rem;
@@ -95,17 +94,17 @@
         justify-content: center;
       }
 
-      input[type="radio"]{
+      input[type='radio'] {
         left: 0;
         opacity: 0;
         position: absolute;
         z-index: -1;
-        &:checked ~ .radio-icon{
-          color: #FFFFFF;
+        &:checked ~ .radio-icon {
+          color: #ffffff;
           font-size: 0.75rem;
           line-height: 100%;
-          background-color: #07BECB;
-          transition: all .3s;
+          background-color: #07becb;
+          transition: all 0.3s;
         }
       }
 
@@ -117,26 +116,26 @@
       }
     }
   }
-  .calculator-from__header{
+  .calculator-from__header {
     margin-bottom: 1.875rem;
   }
-  &__inner-line{
+  &__inner-line {
     display: flex;
     align-items: self-end;
     gap: 1.25rem;
   }
-  @media (max-width: 61.9375rem){
+  @media (max-width: 61.9375rem) {
     &__inner-line {
       flex-wrap: wrap;
     }
-    input{
+    input {
       width: 100%;
     }
   }
 }
 // form how-much calculator + webflow styles
-.calculator-form{
-  &__content-wrapper{
+.calculator-form {
+  &__content-wrapper {
     padding: 1.25rem;
   }
   &__tab-link:hover {
@@ -146,24 +145,24 @@
     color: #fff;
   }
 
-  &__content-top{
+  &__content-top {
     padding: 1.25rem 2.5rem;
-    @media(max-width: 36rem){
+    @media (max-width: 36rem) {
       padding: 1.25rem 0.9375rem;
       margin-bottom: 0;
     }
   }
-  &__tabs{
-    background-color: #EEF2F4;
-    @media(max-width: 36rem){
+  &__tabs {
+    background-color: #eef2f4;
+    @media (max-width: 36rem) {
       overflow: hidden;
       width: 100%;
       margin-top: 0;
       border-radius: 0;
     }
   }
-  &__tab-menu{
-    @media(max-width: 36rem){
+  &__tab-menu {
+    @media (max-width: 36rem) {
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -172,8 +171,8 @@
       border-bottom: none;
     }
   }
-  &__tab-link{
-    @media(max-width: 36rem){
+  &__tab-link {
+    @media (max-width: 36rem) {
       width: 100%;
       height: auto;
       background-color: #fff;
@@ -184,74 +183,74 @@
   &__list {
     width: 100%;
   }
-  &__list-item{
+  &__list-item {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 0;
     height: auto;
-    border-bottom: 1px solid #EEF2F4;
+    border-bottom: 1px solid #eef2f4;
     margin: 0;
-    @media(max-width: 36rem) {
+    @media (max-width: 36rem) {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      &.result-item{
+      &.result-item {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        .name-result{
+        .name-result {
           margin-bottom: 0;
           margin-right: 0.9375rem;
         }
       }
-      .name-result{
-        margin-bottom: 0.9375rem
+      .name-result {
+        margin-bottom: 0.9375rem;
       }
     }
-    &:last-child{
+    &:last-child {
       border: none;
     }
-    .name-result{
+    .name-result {
       font-weight: 400;
       font-size: 0.875rem;
       line-height: 100%;
       letter-spacing: -0.03125em;
       color: rgba(92, 92, 92, 0.6);
-      &.total{
+      &.total {
         font-weight: 600;
         color: #232323;
       }
     }
-    .result{
+    .result {
       font-style: normal;
       font-weight: 500;
       font-size: 1rem;
       line-height: 100%;
       letter-spacing: -0.03125em;
       color: #232323;
-      &.total{
+      &.total {
         font-weight: 600;
         font-size: 20px;
         line-height: 100%;
         letter-spacing: -0.03125em;
-        color: #07BECB;
+        color: #07becb;
         position: relative;
         &::before {
-          content: "$";
+          content: '$';
           margin-right: 0.3125em;
           left: 0;
         }
       }
     }
   }
-  &__text-result-wrapper{
-    background: #FFFFFF;
+  &__text-result-wrapper {
+    background: #ffffff;
     border-radius: 5px;
     padding: 2.5rem;
-    .text{
+    .text {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       font-weight: 400;
@@ -259,24 +258,24 @@
       line-height: 200%;
       letter-spacing: -0.03125em;
       color: #232323;
-      p{
+      p {
         margin-bottom: 20px;
-        &:last-child{
+        &:last-child {
           margin-bottom: 0;
         }
-        .marker{
+        .marker {
           font-weight: 600;
           position: relative;
-          &.percent{
+          &.percent {
             &::after {
-              content: "%";
+              content: '%';
               margin-left: 0.125rem;
               right: 0;
             }
           }
-          &.currency{
+          &.currency {
             &::before {
-              content: "$";
+              content: '$';
               margin-right: 0.125rem;
               left: 0;
             }
@@ -286,7 +285,7 @@
     }
   }
 
-  @media(max-width: 36rem) {
+  @media (max-width: 36rem) {
     .w-tab-link {
       padding: 1.125rem 1.875rem;
     }

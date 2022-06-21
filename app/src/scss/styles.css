@@ -72,7 +72,7 @@
 .calc-wrp__item .switcher-parent {
   display: flex;
   align-items: center;
-  background: #EEF2F4;
+  background: #eef2f4;
   border-radius: 2px;
   padding: 0.125rem;
   position: absolute;
@@ -108,10 +108,10 @@
   z-index: -1;
 }
 .calc-wrp__item .switcher-parent input[type=radio]:checked ~ .radio-icon {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 0.75rem;
   line-height: 100%;
-  background-color: #07BECB;
+  background-color: #07becb;
   transition: all 0.3s;
 }
 .calc-wrp__item .switcher-parent .radio-label {
@@ -156,7 +156,7 @@
   }
 }
 .calculator-form__tabs {
-  background-color: #EEF2F4;
+  background-color: #eef2f4;
 }
 @media (max-width: 36rem) {
   .calculator-form__tabs {
@@ -195,7 +195,7 @@
   justify-content: space-between;
   padding: 1.25rem 0;
   height: auto;
-  border-bottom: 1px solid #EEF2F4;
+  border-bottom: 1px solid #eef2f4;
   margin: 0;
 }
 @media (max-width: 36rem) {
@@ -245,7 +245,7 @@
   font-size: 20px;
   line-height: 100%;
   letter-spacing: -0.03125em;
-  color: #07BECB;
+  color: #07becb;
   position: relative;
 }
 .calculator-form__list-item .result.total::before {
@@ -254,7 +254,7 @@
   left: 0;
 }
 .calculator-form__text-result-wrapper {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 5px;
   padding: 2.5rem;
 }
