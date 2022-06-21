@@ -146,15 +146,11 @@ export const render = (elements, watchedState) => {
   renderLengthYears(elements, watchedState);
   renderInterestRate(elements, watchedState);
   renderHomeValue(elements, watchedState);
-
   renderAnnualTaxes(elements, watchedState);
   renderAnnualInsurance(elements, watchedState);
-
   renderMonthlyTaxes(elements, watchedState);
   renderMonthlyInsurance(elements, watchedState);
-
   renderValueRatio(elements, watchedState);
-
   // total monthly PMI
   renderMonthlyPMI(elements, watchedState);
   renderMonthWithPMI(elements, watchedState);

@@ -1,5 +1,4 @@
 import onChange from 'on-change';
-
 import calc from './calc';
 import { render } from './render';
 
@@ -113,12 +112,6 @@ const init = () => {
 
   // MODEL
   const watchedState = onChange(state, () => {
-    // const excludesElements = form.querySelectorAll('.switcher');
-    // console.log("STATE", state) ;
-    // console.log("PATH, VALUE", path, value);
-    // console.log("VALUE", value);
-    // console.log("PREV VALUE", prevValue);
-
     calc(elements, watchedState);
   });
 
@@ -130,7 +123,7 @@ const init = () => {
     render(elements, watchedState);
   });
 
-  form.addEventListener('change', (e) => {
+  form.addEventListener('change', () => {
     updateValues(elements, watchedState);
     render(elements, watchedState);
   });

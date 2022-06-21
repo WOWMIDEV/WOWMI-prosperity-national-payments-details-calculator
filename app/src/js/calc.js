@@ -40,7 +40,7 @@ const getAnnualInsurance = (annualInsurance, switchInsurance, amountResult) => {
   return setFormatNumber(result);
 };
 
-const getAnnualPMI = (annualPmi, switchPMI, amountResult, loanValueRatioResult) => {
+const getAnnualPMI = (annualPmi, switchPMI, amountResult) => {
   if (switchPMI === '$') {
     return setFormatNumber(+annualPmi);
   }
