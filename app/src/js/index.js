@@ -12,7 +12,6 @@ const updateExclude = (form, watchedState) => {
   [...excludesElements].forEach((excludeItem) => {
     switch (excludeItem.checked) {
       case true:
-        // console.log(exclude[excludeItem.name])
         exclude[excludeItem.name] = excludeItem.value;
         break;
       case false:
@@ -75,13 +74,13 @@ const init = () => {
     form: {
       values: {
         // input values
-        amount: 250000.00,
-        'interest-rate': 4,
-        'length-years': 30,
-        'home-value': "300000.00",
-        'annual-tax': "3000.00",
-        'annual-insurance': "1500.00",
-        'annual-pmi': "0.5",
+        amount: 0,
+        'interest-rate': 0,
+        'length-years': 0,
+        'home-value': 0,
+        'annual-tax': 0,
+        'annual-insurance': 0,
+        'annual-pmi': 0,
       },
       exclude: {
         'switch-taxes': '$',

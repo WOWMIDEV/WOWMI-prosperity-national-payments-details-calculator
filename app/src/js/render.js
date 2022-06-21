@@ -1,5 +1,5 @@
 // VIEW
-const renderFormatLocale = (resultValue) =>resultValue.toLocaleString('en-US', { minimumFractionDigits: 2 });
+const renderFormatLocale = (resultValue) => resultValue.toLocaleString('en-US', { minimumFractionDigits: 2 });
 
 // render details
 const renderAmount = (elements, watchedState) => {

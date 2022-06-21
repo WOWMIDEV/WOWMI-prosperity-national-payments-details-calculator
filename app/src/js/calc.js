@@ -13,10 +13,13 @@ const getInterestRateMonthly = (interestRate) => {
 const getAmount = (amount) => setFormatNumber(amount);
 
 const getResMonthlyPI = (amountResult, interestRateMonthlyResult, paymentsMonthResult) => {
-  const result = (amountResult * interestRateMonthlyResult * (1 + interestRateMonthlyResult) ** paymentsMonthResult)
-    / ((1 + interestRateMonthlyResult) ** paymentsMonthResult - 1);
+  if (interestRateMonthlyResult !== 0) {
+    const result = (amountResult * interestRateMonthlyResult * (1 + interestRateMonthlyResult) ** paymentsMonthResult)
+        / ((1 + interestRateMonthlyResult) ** paymentsMonthResult - 1);
 
-  return setFormatNumber(result);
+    return setFormatNumber(result);
+  }
+  return 0;
 };
 
 const getResMonthlyInterest = (amountResult, interestRateResult) => {
@@ -62,8 +65,8 @@ const getMonthlyInsurance = (annualInsuranceResult, switchInsurance) => {
   return setFormatNumber(annualInsuranceResult / 12);
 };
 
-const getMonthlyPMI = (annualPMIResult, switchPMI, loanValueRatioResult) => {
-  if (loanValueRatioResult > 80) {
+const getMonthlyPMI = (annualPMIResult, switchPMI, loanValueRatioResult, interestRateResult) => {
+  if (interestRateResult !== 0 && loanValueRatioResult > 80) {
     if (switchPMI === '$') {
       return setFormatNumber(annualPMIResult / 12);
     }
@@ -80,31 +83,39 @@ const getValueRatio = (amountResult, homeValue) => {
 
 // month with PMI
 const getInterestNew = (amountResultNew, interestRateResult) => {
-  const result = (amountResultNew * interestRateResult) / 12;
-  return setFormatNumber(result);
-};
-const getMonthPMI = ( loanValueRatioResult,
-                      amountResult,
-                      homeValue,
-                      monthlyPIResult,
-                      monthlyInterestResult,
-                      monthlyPMIResult,
-                      paymentsMonthResult,
-                      interestRateResult) => {
-  let countMonth = 0;
-  let loanValueResNew = loanValueRatioResult;
-  let amountResultNew = amountResult;
-
-  while (loanValueResNew > 80) {
-    countMonth += 1;
-    const interestRateMonthlyResultNew = getInterestNew(amountResultNew, interestRateResult);
-    const interest = interestRateMonthlyResultNew ?? 0;
-    amountResultNew = amountResultNew - (monthlyPIResult - interest);
-    loanValueResNew = (amountResultNew * 100) / homeValue;
-    loanValueResNew = Math.floor(loanValueResNew * 10) / 10;
+  if (interestRateResult !== 0) {
+    const result = (amountResultNew * interestRateResult) / 12;
+    return setFormatNumber(result);
   }
+  return 0;
+};
+const getMonthPMI = (
+  loanValueRatioResult,
+  amountResult,
+  homeValue,
+  monthlyPIResult,
+  monthlyInterestResult,
+  monthlyPMIResult,
+  paymentsMonthResult,
+  interestRateResult,
+) => {
+  if (interestRateResult !== 0) {
+    let countMonth = 0;
+    let loanValueResNew = loanValueRatioResult;
+    let amountResultNew = amountResult;
 
-  return countMonth;
+    while (loanValueResNew > 80) {
+      countMonth += 1;
+      const interestRateMonthlyResultNew = getInterestNew(amountResultNew, interestRateResult);
+      const interest = interestRateMonthlyResultNew ?? 0;
+      amountResultNew -= (monthlyPIResult - interest);
+      loanValueResNew = (amountResultNew * 100) / homeValue;
+      loanValueResNew = Math.floor(loanValueResNew * 10) / 10;
+    }
+
+    return countMonth;
+  }
+  return 0;
 };
 
 // total monthly payment
@@ -114,10 +125,16 @@ const getResMonthlyPayment = (
   paymentsMonthResult,
   monthlyTaxResult,
   monthlyInsuranceResult,
-  monthlyPMIResult) => {
-  const result = (amountResult * interestRateMonthlyResult * (1 + interestRateMonthlyResult) ** paymentsMonthResult)
-      / ((1 + interestRateMonthlyResult) ** paymentsMonthResult - 1) + monthlyTaxResult + monthlyInsuranceResult + monthlyPMIResult;
-  return setFormatNumber(+result);
+  monthlyPMIResult,
+) => {
+  if (interestRateMonthlyResult !== 0) {
+    const calcDetailsForMonthly = monthlyTaxResult + monthlyInsuranceResult + monthlyPMIResult;
+    const result = (amountResult * interestRateMonthlyResult * (1 + interestRateMonthlyResult) ** paymentsMonthResult)
+        / ((1 + interestRateMonthlyResult) ** paymentsMonthResult - 1) + calcDetailsForMonthly;
+    return setFormatNumber(+result);
+  }
+
+  return 0;
 };
 
 const calc = (elements, watchedState) => {
@@ -150,7 +167,7 @@ const calc = (elements, watchedState) => {
   const annualPMIResult = getAnnualPMI(annualPMI, switchPMI, amountResult, loanValueRatioResult);
   const monthlyTaxResult = getMonthlyTax(annualTaxResult, switchTaxes, amountResult);
   const monthlyInsuranceResult = getMonthlyInsurance(annualInsuranceResult, switchInsurance, amountResult);
-  const monthlyPMIResult = getMonthlyPMI(annualPMIResult, switchPMI, loanValueRatioResult);
+  const monthlyPMIResult = getMonthlyPMI(annualPMIResult, switchPMI, loanValueRatioResult, interestRateResult);
   const monthlyPIResult = getResMonthlyPI(amountResult, interestRateMonthlyResult, paymentsMonthResult);
   const monthlyPaymentResult = getResMonthlyPayment(
     amountResult,
@@ -158,7 +175,8 @@ const calc = (elements, watchedState) => {
     paymentsMonthResult,
     monthlyTaxResult,
     monthlyInsuranceResult,
-    monthlyPMIResult);
+    monthlyPMIResult,
+  );
   const monthlyInterestResult = getResMonthlyInterest(amountResult, interestRateResult);
   const monthPMIResult = getMonthPMI(
     loanValueRatioResult,
