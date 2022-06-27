@@ -2,19 +2,16 @@
   "name": "frontend",
   "author": "Victor Kasap",
   "license": "ISC",
-  "targets": {
-    "default": {
-      "source": [
-        "./src/index.html"
-      ]
-    }
-  },
+  "source": [
+    "./src/index.html"
+  ],
   "scripts": {
     "clear": "rimraf dist && rimraf .parcel-cache && rimraf development",
     "server": "rimraf development && parcel --port 4444 --dist-dir development",
     "prefixer": "postcss ./dist/css/*.css -p -d ./dist/css -m",
     "build:dev": "npm run clear && parcel build --no-cache --no-content-hash --no-optimize --no-source-maps --public-url ./",
-    "build:prod": "npm run clear && parcel build --no-cache --public-url ./ && npm run prefixer"
+    "build:prod": "npm run clear && parcel build --no-cache --public-url ./ && npm run prefixer",
+    "build:script": "npm run clear && parcel build src/js/index.js --no-cache --public-url ./ && npm run prefixer"
   },
   "devDependencies": {
     "@parcel/optimizer-cssnano": "^2.5.0",
@@ -54,8 +51,8 @@
     "rules": {
       "(.*)\\.(woff2?|ttf)": "fonts/$1{~hash}.$2",
       "(.*)\\.(svg|png|gif|jpg|jpeg)": "img/$1{~hash}.$2",
-      "(.*)\\.(css)": "css/$1{~hash}.$2",
-      "(.*)\\.(js)": "js/$1{~hash}.$2"
+      "(.*)\\.(css)": "css/$1.$2",
+      "(.*)\\.(js)": "js/$1.$2"
     }
   },
   "posthtml": {

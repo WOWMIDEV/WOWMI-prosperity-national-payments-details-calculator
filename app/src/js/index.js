@@ -1,6 +1,9 @@
+import "../scss/styles.scss";
+
 import onChange from 'on-change';
 import calc from './calc';
 import { render } from './render';
+import htmlTemplateForm from "./htmlTemplateForm";
 
 // controller
 
@@ -39,6 +42,13 @@ const updateValues = (elements, watchedState) => {
 };
 
 const init = () => {
+
+  const isTemplate = htmlTemplateForm();
+
+  if(!isTemplate) {
+    return false;
+  }
+
   // MODEL
   const elements = {
     form: document.forms.calcHowMuch,
