@@ -3,7 +3,6 @@ $laptop: 64rem; // 1024
 $tablet-L: 62rem; // 992
 $tablet: 48rem; // 768
 $tablet-S: 36rem; // 576
-$mobile-L: 29.9375rem; // 479
 
 .header {
   padding: 2rem;
@@ -49,7 +48,7 @@ $mobile-L: 29.9375rem; // 479
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 3.75rem;
+    padding: 3.125rem;
     @media (max-width: $tablet) {
       padding: 2.5rem 0 0;
     }
@@ -76,20 +75,9 @@ $mobile-L: 29.9375rem; // 479
       }
     }
     @media (max-width: $tablet-S) {
-
       &.full-item{
         margin-top: 1.25rem;
       }
-    }
-    .calculator-from__header{
-      margin-bottom: 1.875rem;
-    }
-    .btn.btn--huge.btn--full-width {
-      width: 100%;
-    }
-    .calculator-form__input {
-      color: #333333;
-      width: 100%;
     }
     // switchers
     .switcher-parent{
@@ -170,8 +158,11 @@ $mobile-L: 29.9375rem; // 479
     margin: 1rem;
   }
 }
-// form how-much calculator + webflow styles
 .calculator-form{
+  &__input {
+    color: #333333;
+    width: 100%;
+  }
   &__header{
     color: #07becb;
     font-size: 1.125rem;
